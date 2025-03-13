@@ -1,0 +1,18 @@
+Get me the IP address of a particular domain (guvi.in). 
+
+nslookup guvi.in
+
+
+How do I find my CPU/memory usage of my server?
+
+top
+free -h
+
+Test the connectivity between 2 nodes?
+
+Ping guvi.in
+
+
+Check if the port (9000) is open on guvi.com?
+
+nmap -p 9000 guvi.in
