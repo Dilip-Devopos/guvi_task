@@ -1,0 +1,8 @@
+Hello, this is line one.
+This line does not matter.
+Give me an example.
+welcome to the program.
+Let's learn awk.
+welcome to the give and take world.
+I want to give my best.
+welcome everyone, give your time to learn.
