@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Male Details Form</title>
+  <style>
+    body {
+      font-family: "Google Sans", Roboto, Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    .form-wrapper {
+      background: white;
+      padding: 30px 40px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #202124;
+    }
+    .form-group {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #202124;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input:focus, textarea:focus {
+      border-color: #1a73e8;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .submit-btn {
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #1669c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2>Basic Details Form</h2>
+    <form id="detailsForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter full name" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Enter age" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" name="gender" value="Male" readonly>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="4" placeholder="Enter address"></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("detailsForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      alert("Your details are saved!");
+      this.reset(); // Optional: reset form after submission
+    });
+  </script>
+</body>
+</html>
