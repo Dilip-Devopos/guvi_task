@@ -1,0 +1,10 @@
+version: "1"
+services:
+  docker-compose:
+    build:
+      context: /home/ubuntu/guvi_task/Task-12/Docker-compose
+      dockerfile: Dockerfile
+    ports:
+      - "81:80"
+    volumes:
+      - /var/opt/nginx:/usr/share/nginx/html
