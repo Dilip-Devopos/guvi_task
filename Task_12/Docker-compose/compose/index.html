@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DevOps Tools Selection</title>
+  <style>
+    body {
+      font-family: "Google Sans", Roboto, Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    .form-wrapper {
+      background: white;
+      padding: 30px 40px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #202124;
+    }
+    .form-group {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #202124;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .submit-btn {
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #1669c1;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2>DevOps Tools Selection</h2>
+    <form id="toolsForm">
+      <div class="form-group">
+        <label for="docker">
+          <input type="checkbox" id="docker" name="tools" value="Docker">
+          Docker
+        </label>
+        <label for="kubernetes">
+          <input type="checkbox" id="kubernetes" name="tools" value="Kubernetes">
+          Kubernetes
+        </label>
+        <label for="terraform">
+          <input type="checkbox" id="terraform" name="tools" value="Terraform">
+          Terraform
+        </label>
+        <label for="jenkins">
+          <input type="checkbox" id="jenkins" name="tools" value="Jenkins">
+          Jenkins
+        </label>
+        <label for="ansible">
+          <input type="checkbox" id="ansible" name="tools" value="Ansible">
+          Ansible
+        </label>
+        <label for="gitlab">
+          <input type="checkbox" id="gitlab" name="tools" value="GitLab CI/CD">
+          GitLab CI/CD
+        </label>
+        <label for="prometheus">
+          <input type="checkbox" id="prometheus" name="tools" value="Prometheus">
+          Prometheus
+        </label>
+        <label for="grafana">
+          <input type="checkbox" id="grafana" name="tools" value="Grafana">
+          Grafana
+        </label>
+        <label for="azureDevOps">
+          <input type="checkbox" id="azureDevOps" name="tools" value="Azure DevOps">
+          Azure DevOps
+        </label>
+        <label for="awsDevOps">
+          <input type="checkbox" id="awsDevOps" name="tools" value="AWS DevOps">
+          AWS DevOps
+        </label>
+      </div>
+      <div id="error-message" class="error-message"></div>
+      <button id="submitBtn" class="submit-btn" type="submit" disabled>Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const toolsForm = document.getElementById("toolsForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const errorMessage = document.getElementById("error-message");
+
+    // Function to check how many tools are selected
+    function checkSelection() {
+      const selectedTools = document.querySelectorAll('input[name="tools"]:checked');
+      const selectedCount = selectedTools.length;
+
+      if (selectedCount > 5) {
+        errorMessage.textContent = "Please choose only up to 5 tools.";
+        submitBtn.disabled = true;
+      } else {
+        errorMessage.textContent = "";
+        submitBtn.disabled = selectedCount === 0; // Disable submit if no tools are selected
+      }
+    }
+
+    // Add event listeners to checkboxes
+    const checkboxes = document.querySelectorAll('input[name="tools"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener("change", checkSelection);
+    });
+
+    // Handle form submission
+    toolsForm.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      alert("Your choice is great!");
+      toolsForm.reset(); // Optional: reset form after submission
+      checkSelection(); // Recheck selection status after reset
+    });
+  </script>
+</body>
+</html>
