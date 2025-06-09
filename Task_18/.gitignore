@@ -1,0 +1,6 @@
+# Ignore Terraform files
+# This file is used to ignore files and directories in a Git repository
+.terraform
+.terraform.lock.hcl
+.tfstate
+.tfstate.*
